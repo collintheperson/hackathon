@@ -33,9 +33,13 @@ public class Team {
     }
 
     public static ArrayList<Team> getAll() {
-        return instances;
+            return instances;
     }
     public int getId() {
         return id;
     }
+    public static Team findById(int id) {
+            return instances.get(id -1);
+    }
+
 }
