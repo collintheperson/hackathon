@@ -41,7 +41,7 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //get: show an individual post
+
         get("/teams/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfPostToFind = Integer.parseInt(req.params("id")); //pull id - must match route segment
@@ -49,6 +49,16 @@ public class App {
             model.put("teams", foundTeam); //add it to model for template to display
             return new ModelAndView(model, "team-detail.hbs"); //individual post page.
         }, new HandlebarsTemplateEngine());
+
+        //get: show a form to update a post
+        get("/teams/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfPostToEdit = Integer.parseInt(req.params("id"));
+            Team editTeam = Team.findById(idOfPostToEdit);
+            model.put("editTeam", editTeam);
+            return new ModelAndView(model, "team-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
 
     }
 }
