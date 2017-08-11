@@ -15,5 +15,10 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         },   new HandlebarsTemplateEngine());
 
+        get("/posts/new",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            return new ModelAndView(model, "post-form.hbs");
+        },   new HandlebarsTemplateEngine());
+
     }
 }
