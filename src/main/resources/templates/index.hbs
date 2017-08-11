@@ -1,0 +1,15 @@
+{{#partial "content"}}
+
+    <h1>Post list!</h1>
+
+    {{#if teams}}
+        {{#each teams }}
+            <p>Current Team Rooster:</p>
+            <p>{{ content }} <a href="/teams/{{id}}">Look to see more about the team...</a></p>
+        {{/each}}
+    {{else}}
+        <p>No Teams have signed up yet!</p>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}
