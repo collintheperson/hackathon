@@ -1,6 +1,6 @@
-# Project Title
+# Hack_A_Thon
 
-This App is to allow for users of a Hack-a-Thon either join another preexisting group or to allow them to start their own group. 
+This App is to allow for users of a Hack-a-Thon either join another preexisting group or to allow them to start their own group.
 
 ## Getting Started
 
@@ -18,7 +18,6 @@ If running Intelij all you need to do is to go to the run tooltip located at bot
 
 * [Intellij](https://www.jetbrains.com/idea/) - The integrated development enviroment for java
 * [Spark](http://sparkjava.com/) - A micro framework for creating web applications.
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
 ## Authors
 
