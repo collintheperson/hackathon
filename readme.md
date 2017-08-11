@@ -1,6 +1,6 @@
 # Hack_A_Thon
 
-This App is to allow for users of a Hack-a-Thon either join another preexisting group or to allow them to start their own group.
+This App is to allow for users of a Hack-a-Thon either join another pre-existing group or to allow them to start their own group.
 
 ## Getting Started
 
