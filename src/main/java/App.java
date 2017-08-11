@@ -30,7 +30,7 @@ public class App {
             String description = request.queryParams("description");
             Team newTeam = new Team(name,description);
             model.put("team", newTeam);
-            return new ModelAndView(model, "success.hbs");
+            return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/teams", (req, res) -> {
@@ -43,6 +43,7 @@ public class App {
 
         get("/teams/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
+            System.out.println(Integer.parseInt(req.params("id")));
             int idOfPostToFind = Integer.parseInt(req.params("id")); //pull id - must match route segment
             Team foundTeam = Team.findById(idOfPostToFind); //use it to find post
             model.put("teams", foundTeam); //add it to model for template to display
@@ -53,18 +54,32 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int idOfPostToEdit = Integer.parseInt(req.params("id"));
             Team editTeam = Team.findById(idOfPostToEdit);
-            model.put("editTeam", editTeam);
+            model.put("editTeams", editTeam);
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //find a post by its ID and update with new content
+
         post("/teams/:id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            String newContent = req.queryParams("content");
-            int idOfPostToEdit = Integer.parseInt(req.params("id"));
-            Team editTeam = Team.findById(idOfPostToEdit);
-            editTeam.update(newContent); //don’t forget me
-            return new ModelAndView(model, "success.hbs");
+            String newName = req.queryParams("name");
+            String newDescription = req.queryParams("description");
+            System.out.println(Integer.parseInt(req.params("id")));
+            int idOfTeamToEdit = Integer.parseInt(req.params("id"));
+            Team editTeam = Team.findById(idOfTeamToEdit);
+            editTeam.update(newName,newDescription);
+            return new ModelAndView(model, "team-detail.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+        post("/teams/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newName = req.queryParams("name");
+            String newDescription = req.queryParams("description");
+            int idOfTeamToEdit = Integer.parseInt(req.params("id"));
+            Team editTeam = Team.findById(idOfTeamToEdit);
+            editTeam.update(newName,newDescription);
+            System.out.println("where does this get lost3" + editTeam);
+            return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }
