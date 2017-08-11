@@ -36,7 +36,6 @@ public class App {
         get("/teams", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             ArrayList<Team> teams = Team.getAll();
-            System.out.println(Team.getAll());
             model.put("teams", teams);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
@@ -50,7 +49,6 @@ public class App {
             return new ModelAndView(model, "team-detail.hbs"); //individual post page.
         }, new HandlebarsTemplateEngine());
 
-        //get: show a form to update a post
         get("/teams/:id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfPostToEdit = Integer.parseInt(req.params("id"));
@@ -59,6 +57,14 @@ public class App {
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-
+        //find a post by its ID and update with new content
+        post("/teams/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newContent = req.queryParams("content");
+            int idOfPostToEdit = Integer.parseInt(req.params("id"));
+            Team editTeam = Team.findById(idOfPostToEdit);
+            editTeam.update(newContent); //don’t forget me
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
