@@ -38,6 +38,7 @@ public class TeamTest {
     @Test
     public void TeamsWillBeCorrectlyReturned_true() throws Exception    {
         Team team = new Team ("Codegagedon","Team of coders from Epicodus");
-        assertEquals(2,Team.getAll().size());
+        Team team2 = new Team ("Moonrise Coders", "Coders that happen to be big fans of West Anderson" );
+        assertEquals(4,Team.getAll().size());
     }
 }
