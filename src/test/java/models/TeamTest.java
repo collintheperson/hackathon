@@ -33,6 +33,6 @@ public class TeamTest {
         Team team = new Team("Codeagedon","Team of coders from Epicodus");
         Team team2 = new Team("Moonrise Coders","Coders that happen to be big fans of Wes Anderson");
         assertTrue(Team.getAll().contains(team));
-        assertTrue(Team.getAll().contains("something"));
+        assertTrue(Team.getAll().contains(team2));
     }
 }
