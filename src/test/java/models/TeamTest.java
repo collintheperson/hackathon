@@ -46,6 +46,6 @@ public class TeamTest {
     public void TeamsWillHaveAnID_PostInstantiatesWithAnID_1() throws Exception {
         Team.clearAllTeams();
         Team team = new Team ("Codegagedon","Team of coders from Epicodus");
-        assertEquals(2,team.getId());
+        assertEquals(1,team.getId());
     }
 }
