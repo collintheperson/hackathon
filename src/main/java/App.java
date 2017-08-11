@@ -67,7 +67,7 @@ public class App {
             int idOfTeamToEdit = Integer.parseInt(req.params("id"));
             Team editTeam = Team.findById(idOfTeamToEdit);
             editTeam.update(newName,newDescription);
-            return new ModelAndView(model, "team-detail.hbs");
+            return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
 

@@ -5,7 +5,7 @@
     <p>{{ teams.name}}</p>
     <h5>Description:</h5>
     <p> {{ teams.description }}</p>
-    <h5>Post status:</h5>
+    <h5> Team status:</h5>
     <p>
         {{#if teams.published }}
             <span class="glyphicon glyphicon-star" aria-hidden="true"></span>  Published
@@ -14,8 +14,6 @@
         {{/if}}
 
         <a href="/teams/{{teams.id}}/update">Edit this team</a><br>
-        <a href="/teams/{{teams.id}}/delete">DELETE this team (no undo)</a>
-    </p>
 
 {{/partial}}
 
