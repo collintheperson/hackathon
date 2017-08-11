@@ -35,4 +35,9 @@ public class TeamTest {
         assertTrue(Team.getAll().contains(team));
         assertTrue(Team.getAll().contains(team2));
     }
+    @Test
+    public void TeamsWillBeCorrectlyReturned_true() throws Exception    {
+        Team team = new Team ("Codegagedon","Team of coders from Epicodus");
+        assertEquals(2,Team.getAll().size());
+    }
 }
