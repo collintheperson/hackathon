@@ -26,6 +26,6 @@ public class TeamTest {
     @Test
     public void PostInstantiatesWithNewContent_true()   throws Exception    {
         Team team = new Team("Codeagedon","Team of coders from Epicodus");
-        assertEquals("Codeagedon: Team of coders from Epicodus", team.getName());
+        assertEquals("Codeagedon", team.getName());
     }
 }
