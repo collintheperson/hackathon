@@ -9,6 +9,7 @@ import models.Team;
 public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
+        Team.clearAllTeams();
 
         get("/",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
@@ -45,7 +46,7 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int idOfPostToFind = Integer.parseInt(req.params("id")); //pull id - must match route segment
             Team foundTeam = Team.findById(idOfPostToFind); //use it to find post
-            model.put("post", foundTeam); //add it to model for template to display
+            model.put("teams", foundTeam); //add it to model for template to display
             return new ModelAndView(model, "team-detail.hbs"); //individual post page.
         }, new HandlebarsTemplateEngine());
 
