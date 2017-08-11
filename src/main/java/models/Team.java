@@ -11,12 +11,18 @@ public class Team {
         private String name;
         private String description;
         private static ArrayList<Team> instances = new ArrayList<>();
+        private int id;
 
         public Team(String name, String description)    {
             this.name=name;
             this.description=description;
             instances.add(this);
+            this.id=instances.size();
         }
+
+    public static void clearAllTeams()  {
+            instances.clear();
+    }
 
     public String getName() {
         return name;
@@ -28,5 +34,8 @@ public class Team {
 
     public static ArrayList<Team> getAll() {
         return instances;
+    }
+    public int getId() {
+        return id;
     }
 }

@@ -37,8 +37,15 @@ public class TeamTest {
     }
     @Test
     public void TeamsWillBeCorrectlyReturned_true() throws Exception    {
+        Team.clearAllTeams();
         Team team = new Team ("Codegagedon","Team of coders from Epicodus");
         Team team2 = new Team ("Moonrise Coders", "Coders that happen to be big fans of West Anderson" );
-        assertEquals(3,Team.getAll().size());
+        assertEquals(2,Team.getAll().size());
+    }
+    @Test
+    public void TeamsWillHaveAnID_PostInstantiatesWithAnID_1() throws Exception {
+        Team.clearAllTeams();
+        Team team = new Team ("Codegagedon","Team of coders from Epicodus");
+        assertEquals(2,team.getId());
     }
 }
