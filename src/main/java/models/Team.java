@@ -15,6 +15,7 @@ public class Team {
         public Team(String name, String description)    {
             this.name=name;
             this.description=description;
+            instances.add(this);
         }
 
     public String getName() {
@@ -25,7 +26,7 @@ public class Team {
         return description;
     }
 
-    public static ArrayList<Team> getInstances() {
+    public static ArrayList<Team> getAll() {
         return instances;
     }
 }

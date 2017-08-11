@@ -24,8 +24,15 @@ public class TeamTest {
     assertEquals(true,team instanceof Team);
     }
     @Test
-    public void PostInstantiatesWithNewContent_true()   throws Exception    {
+    public void TeamInstantiatesWithNewContent_true()   throws Exception    {
         Team team = new Team("Codeagedon","Team of coders from Epicodus");
         assertEquals("Codeagedon", team.getName());
+    }
+    @Test
+    public void TeamWillContainAllInfo_true()   throws Exception    {
+        Team team = new Team("Codeagedon","Team of coders from Epicodus");
+        Team team2 = new Team("Moonrise Coders","Coders that happen to be big fans of Wes Anderson");
+        assertTrue(Team.getAll().contains(team));
+        assertTrue(Team.getAll().contains("something"));
     }
 }
