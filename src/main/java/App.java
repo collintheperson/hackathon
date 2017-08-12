@@ -13,8 +13,8 @@ public class App {
 
         get("/",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
-            ArrayList<Team> backpacks = Team.getAll();
-            model.put("teams", backpacks);
+            ArrayList<Team> teams = Team.getAll();
+            model.put("teams", teams);
             return new ModelAndView(model, "index.hbs");
         },   new HandlebarsTemplateEngine());
 
@@ -43,7 +43,6 @@ public class App {
 
         get("/teams/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            System.out.println(Integer.parseInt(req.params("id")));
             int idOfPostToFind = Integer.parseInt(req.params("id")); //pull id - must match route segment
             Team foundTeam = Team.findById(idOfPostToFind); //use it to find post
             model.put("teams", foundTeam); //add it to model for template to display

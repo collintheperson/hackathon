@@ -11,16 +11,7 @@
         <p>No Teams have signed up yet!</p>
     {{/if}}
 
-    <p>Add a new Team:</p>
 
-    <form action="/teams/new" method="post">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text"><br>
-        <label for="description">Description</label>
-        <input id="description" name="description" type="text"><br>
-
-        <button type="submit" class="btn btn-success">Add new team</button>
-    </form>
 {{/partial}}
 
 {{> layout.hbs}}
