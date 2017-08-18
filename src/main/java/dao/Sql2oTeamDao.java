@@ -34,24 +34,24 @@ public class Sql2oTeamDao implements TeamDao {
         }
     }
 
-//    public Team findById(int id) {
-//        try (Connection con = sql2o.open()) {
-//            return con.createQuery("SELECT * FROM teams WHERE id = :id")
-//                    .addParameter("id", id)
-//                    .executeAndFetchFirst(Team.class);
-//        } catch (Sql2oException ex) {
-//            System.out.println(ex);
-//        }
-//    }
+    public Team findById(int id) {
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM teams WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Team.class);
+        }
+    }
 
     public List<Team> getAll() {
-        try(Connection con = sql2o.open()){
-             return con.createQuery("SELECT * FROM teams") //raw sql
-                .executeAndFetch(Team.class); //fetch a list
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM teams") //raw sql
+                    .executeAndFetch(Team.class); 
+        }
     }
 }
+
 //
 
 
-}
+
 

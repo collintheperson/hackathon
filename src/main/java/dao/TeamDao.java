@@ -15,7 +15,7 @@ public interface TeamDao {
   List<Team> getAll();
   //  List<Review> getAllReviewsByTeam(int teamId);
 
-  // Team findById(int id);
+Team findById(int id);
     //    //update
 //    void update(int id, String name, String location);
     //    //delete
