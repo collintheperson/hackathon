@@ -34,7 +34,6 @@ public class Sql2oMemberDaoTest {
     public void addingMemberSetsId() throws Exception {
         System.out.println();
         Member member = setupNewMember();
-        Member member1 = new Member("a",1):
         int originalMemberId = member.getId();
         memberDao.add(member);
         assertNotEquals(originalMemberId, member.getId()); //how does this work?

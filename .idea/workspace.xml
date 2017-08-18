@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbed41d2-179f-4b23-948c-9ed84dee6064" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/Sql2oMemberDao.java" afterPath="$PROJECT_DIR$/src/main/java/dao/Sql2oMemberDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/models/Member.java" afterPath="$PROJECT_DIR$/src/main/java/models/Member.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/db/create.sql" afterPath="$PROJECT_DIR$/src/main/resources/db/create.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/dao/Sql2oMemberDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/dao/Sql2oMemberDaoTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/dao/Sql2oTeamDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/dao/Sql2oTeamDaoTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -147,11 +143,11 @@
           <file leaf-file-name="Sql2oMemberDaoTest.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/java/dao/Sql2oMemberDaoTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="376">
+                <state relative-caret-position="435">
                   <caret line="36" column="41" lean-forward="false" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
                   <folding>
-                    <element signature="e#1166#1167#0" expanded="true" />
-                    <element signature="e#1219#1220#0" expanded="true" />
+                    <element signature="e#1122#1123#0" expanded="true" />
+                    <element signature="e#1175#1176#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -1128,6 +1124,12 @@
     <history-entry file="Sql2oMemberDaoTest_addingMemberSetsId - 2017.08.18 at 12h 14m 52s.xml">
       <configuration name="Sql2oMemberDaoTest.addingMemberSetsId" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="Sql2oMemberDaoTest_addingMemberSetsId - 2017.08.18 at 12h 16m 33s.xml">
+      <configuration name="Sql2oMemberDaoTest.addingMemberSetsId" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Sql2oMemberDaoTest_addingMemberSetsId - 2017.08.18 at 12h 17m 11s.xml">
+      <configuration name="Sql2oMemberDaoTest.addingMemberSetsId" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="Sql2oTeamDaoTest - 2017.08.18 at 11h 46m 41s.xml">
       <configuration name="Sql2oTeamDaoTest" configurationId="JUnit" />
     </history-entry>
@@ -1148,12 +1150,6 @@
     </history-entry>
     <history-entry file="Sql2oTeamDaoTest_deleteById_deletesVeryWell - 2017.08.18 at 11h 46m 35s.xml">
       <configuration name="Sql2oTeamDaoTest.deleteById_deletesVeryWell" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Sql2oTeamDaoTest_updateChangesTeam - 2017.08.18 at 11h 33m 43s.xml">
-      <configuration name="Sql2oTeamDaoTest.updateChangesTeam" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Sql2oTeamDaoTest_updateChangesTeam - 2017.08.18 at 11h 35m 04s.xml">
-      <configuration name="Sql2oTeamDaoTest.updateChangesTeam" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -1553,11 +1549,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/dao/Sql2oMemberDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
+        <state relative-caret-position="435">
           <caret line="36" column="41" lean-forward="false" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
           <folding>
-            <element signature="e#1166#1167#0" expanded="true" />
-            <element signature="e#1219#1220#0" expanded="true" />
+            <element signature="e#1122#1123#0" expanded="true" />
+            <element signature="e#1175#1176#0" expanded="true" />
           </folding>
         </state>
       </provider>
