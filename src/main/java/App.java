@@ -1,23 +1,32 @@
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.Map;
-//import spark.ModelAndView;
-//import spark.template.handlebars.HandlebarsTemplateEngine;
-//import static spark.Spark.*;
-//import models.Team;
-//
-//public class App {
-//    public static void main(String[] args) {
-//        staticFileLocation("/public");
-//        Team.clearAllTeams();
-//
-//        get("/",(request, response) -> {
-//            Map<String,Object> model = new HashMap<>();
-//            ArrayList<Team> teams = Team.getAll();
-//            model.put("teams", teams);
-//            return new ModelAndView(model, "index.hbs");
-//        },   new HandlebarsTemplateEngine());
-//
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import dao.Sql2oMemberDao;
+import dao.Sql2oTeamDao;
+import dao.TeamDao;
+import org.sql2o.Sql2o;
+import spark.ModelAndView;
+import spark.template.handlebars.HandlebarsTemplateEngine;
+import static spark.Spark.*;
+import models.Team;
+
+public class App {
+    public static void main(String[] args) {
+        staticFileLocation("/public");
+        String connectionString = "jdbc:h2:~/todolist.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        Sql2o sql2o = new Sql2o(connectionString, "", "");
+        Sql2oTeamDao teamDao = new Sql2oTeamDao(sql2o);
+        Sql2oMemberDao memberDao = new Sql2oMemberDao(sql2o);
+
+        get("/",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            List<Team> teams = teamDao.getAll();
+            model.put("teams", teams);
+
+            return new ModelAndView(model, "index.hbs");
+        },   new HandlebarsTemplateEngine());
+
 //        get("/teams/new",(request, response) -> {
 //            Map<String,Object> model = new HashMap<>();
 //            return new ModelAndView(model, "team-form.hbs");
@@ -80,5 +89,5 @@
 //            System.out.println("where does this get lost3" + editTeam);
 //            return new ModelAndView(model, "index.hbs");
 //        }, new HandlebarsTemplateEngine());
-//    }
-//}
+    }
+}
