@@ -12,7 +12,7 @@ public interface TeamDao {
     //create
     void add (Team team);
     //read
-    List<Team> getAll();
+ //   List<Team> getAll();
   //  List<Review> getAllReviewsByTeam(int teamId);
 
  //   Team findById(int id);
@@ -24,4 +24,4 @@ public interface TeamDao {
 //    void clearAllTeams();
 
 }
-}
+
