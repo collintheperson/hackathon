@@ -38,6 +38,18 @@ public class Sql2oMemberDaoTest {
         memberDao.add(member);
         assertNotEquals(originalMemberId, member.getId()); //how does this work?
     }
+
+    @Test
+    public void getAll_allMembersAreFound () throws Exception {
+        Member member = setupNewMember();
+        Member anotherMember = new Member ("dudes", 142);
+        memberDao.add(member);
+        memberDao.add(anotherMember);
+        int number = memberDao.getAll().size();
+        System.out.println(number);
+        assertEquals(2,number);
+    }
+
     public Member setupNewMember()  {
         return new Member("Frank Ocean", 112);
     }
