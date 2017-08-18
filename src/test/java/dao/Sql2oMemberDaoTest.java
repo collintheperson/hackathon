@@ -67,6 +67,14 @@ public class Sql2oMemberDaoTest {
         assertEquals(21, updatedMember.getBadgeNumber());
     }
 
+    @Test
+    public void deleteById_deletesVeryWell () {
+        Member member = setupNewMember();
+        memberDao.add(member);
+        memberDao.deleteById(member.getId());
+        assertEquals(0,memberDao.getAll().size());
+    }
+
     public Member setupNewMember()  {
         return new Member("Frank Ocean", 112);
     }

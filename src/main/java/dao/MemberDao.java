@@ -17,4 +17,7 @@ public interface MemberDao {
     Member findById(int id);
 
     void update(int id, String memberName, int badge);
+
+    void deleteById(int id);
+
 }
