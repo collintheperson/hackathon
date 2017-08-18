@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hack_a_thon.iml" filepath="$PROJECT_DIR$/.idea/modules/hack_a_thon.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hack_a_thon_main.iml" filepath="$PROJECT_DIR$/.idea/modules/hack_a_thon_main.iml" group="hack_a_thon" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hack_a_thon_test.iml" filepath="$PROJECT_DIR$/.idea/modules/hack_a_thon_test.iml" group="hack_a_thon" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hackathon.iml" filepath="$PROJECT_DIR$/.idea/modules/hackathon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hackathon_main.iml" filepath="$PROJECT_DIR$/.idea/modules/hackathon_main.iml" group="hackathon" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/hackathon_test.iml" filepath="$PROJECT_DIR$/.idea/modules/hackathon_test.iml" group="hackathon" />
     </modules>
   </component>
 </project>
