@@ -7,6 +7,8 @@ import dao.Sql2oTeamDao;
 import dao.TeamDao;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
+import spark.Request;
+import spark.Response;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import static spark.Spark.*;
 import models.Team;
@@ -50,7 +52,7 @@ public class App {
             model.put("teams", teams);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
-
+        //get: delete an individual task
 
         get("/teams/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
@@ -59,6 +61,21 @@ public class App {
             model.put("teams", foundTeam); //add it to model for template to display
             return new ModelAndView(model, "team-detail.hbs"); //individual post page.
         }, new HandlebarsTemplateEngine());
+
+//        get("/teams/:id/delete", (req, res) -> {
+//            Map<String, Object> model = new HashMap<>();
+//            int idOfTeamToDelete = Integer.parseInt(req.params("id")); //pull id - must match route segment
+//            //    Team deleteTeam = teamDao.findById(idOfTeamToDelete); //use it to find task
+//            teamDao.deleteById(idOfTeamToDelete);
+//            return new ModelAndView(model, "index.hbs");
+//        }, new HandlebarsTemplateEngine());
+
+//        //get: delete all tasks
+//        get("/teams/delete", (req, res) -> {
+//            Map<String, Object> model = new HashMap<>();
+//            teamDao.clearAllTasks();
+//            return new ModelAndView(model, "success.hbs");
+//        }, new HandlebarsTemplateEngine());
 
         get("/team/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
@@ -91,17 +108,6 @@ public class App {
 
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
-    }
 
-//        post("/teams/:id/update", (req, res) -> {
-//            Map<String, Object> model = new HashMap<>();
-//            String newName = req.queryParams("name");
-//            String newDescription = req.queryParams("description");
-//            int idOfTeamToEdit = Integer.parseInt(req.params("id"));
-//            Team editTeam = Team.findById(idOfTeamToEdit);
-//            editTeam.update(newName,newDescription);
-//            System.out.println("where does this get lost3" + editTeam);
-//            return new ModelAndView(model, "index.hbs");
-//        }, new HandlebarsTemplateEngine());
-//    }
+    }
 }

@@ -20,6 +20,7 @@ Team findById(int id);
    void update(int id, String name, String location);
     //    //delete
     void deleteById(int id);
+    void clearAllTeams();
 
 //    void clearAllTeams();
 

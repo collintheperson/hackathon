@@ -78,7 +78,15 @@ public class Sql2oTeamDaoTest {
         assertEquals(0,teamDao.getAll().size());
     }
 
-
+    @Test
+    public void clearAllTasks() {
+        Team team = setupNewTeam();
+        Team anotherTeam = new Team("teeth people","cool");
+        teamDao.add(team);
+        teamDao.add(anotherTeam);
+        teamDao.clearAllTeams();
+        assertEquals(0, teamDao.getAll().size());
+    }
 
     //Helper
     public Team setupNewTeam()  {
