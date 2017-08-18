@@ -46,7 +46,6 @@ public class Sql2oMemberDaoTest {
         memberDao.add(member);
         memberDao.add(anotherMember);
         int number = memberDao.getAll().size();
-        System.out.println(number);
         assertEquals(2,number);
     }
     @Test

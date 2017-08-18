@@ -54,9 +54,9 @@ public class App {
         }, new HandlebarsTemplateEngine());
         //get: delete an individual task
 
-        get("/teams/:id", (req, res) -> {
+        get("/teams/id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            int idOfTeamToFind = Integer.parseInt(req.params("id")); //pull id - must match route segment
+            int idOfTeamToFind = Integer.parseInt(req.params("id"));
             Team foundTeam = teamDao.findById(idOfTeamToFind); //use it to find post
             model.put("teams", foundTeam); //add it to model for template to display
             return new ModelAndView(model, "team-detail.hbs"); //individual post page.
@@ -70,12 +70,12 @@ public class App {
 //            return new ModelAndView(model, "index.hbs");
 //        }, new HandlebarsTemplateEngine());
 
-//        //get: delete all tasks
-//        get("/teams/delete", (req, res) -> {
-//            Map<String, Object> model = new HashMap<>();
-//            teamDao.clearAllTasks();
-//            return new ModelAndView(model, "success.hbs");
-//        }, new HandlebarsTemplateEngine());
+        //get: delete all tasks
+        get("/teams/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            teamDao.clearAllTeams();
+            return new ModelAndView(model, "team-form.hbs");
+        }, new HandlebarsTemplateEngine());
 
         get("/team/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
