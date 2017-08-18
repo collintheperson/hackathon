@@ -45,7 +45,19 @@ public class Sql2oTeamDao implements TeamDao {
     public List<Team> getAll() {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM teams") //raw sql
-                    .executeAndFetch(Team.class); 
+                    .executeAndFetch(Team.class);
+        }
+    }
+    public void update(int id, String newName, String newDescription){
+        String sql = "UPDATE teams SET (name, description) = (:name, :description) WHERE id=:id"; //raw sql
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("name", newName)
+                    .addParameter("description", newDescription)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
         }
     }
 }

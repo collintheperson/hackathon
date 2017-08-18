@@ -62,6 +62,15 @@ public class Sql2oTeamDaoTest {
           System.out.println(number);
          assertEquals(2,number);
 }
+    @Test
+    public void updateChangesTeam() throws Exception {
+        Team team = new Team ("The exiled", "Our code got us exiled from ourselves");
+        teamDao.add(team);
+
+        teamDao.update(1, "the wondercoders", "Superthemed coders that also wear capes");
+        Team updatedTeam = teamDao.findById(team.getId()); //why do I need to refind this?
+        assertEquals("the fasf", updatedTeam.getName());
+    }
 
 
 

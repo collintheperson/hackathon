@@ -82,8 +82,8 @@
       <file leaf-file-name="TeamDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/TeamDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="90">
+              <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sql2oTeamDao.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Sql2oTeamDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/Sql2oTeamDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="47" column="50" lean-forward="false" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
+            <state relative-caret-position="190">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,11 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sql2oTeamDaoTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Sql2oTeamDaoTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/dao/Sql2oTeamDaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+            <state relative-caret-position="397">
+              <caret line="71" column="30" lean-forward="false" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -432,10 +432,10 @@
         <option value="$PROJECT_DIR$/src/main/java/App.java" />
         <option value="$PROJECT_DIR$/src/test/java/models/TeamTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/Team.java" />
-        <option value="$PROJECT_DIR$/src/test/java/dao/Sql2oTeamDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/Sql2oTeamDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/TeamDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/db/create.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/Sql2oTeamDao.java" />
+        <option value="$PROJECT_DIR$/src/test/java/dao/Sql2oTeamDaoTest.java" />
       </list>
     </option>
   </component>
@@ -529,33 +529,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Sql2oTeamDaoTest.existingTeamsCanBeFoundByID">
-    <configuration default="false" name="Sql2oTeamDaoTest.addingTeamSetsId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="hackathon_test" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="dao" />
-      <option name="MAIN_CLASS_NAME" value="dao.Sql2oTeamDaoTest" />
-      <option name="METHOD_NAME" value="addingTeamSetsId" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.Sql2oTeamDaoTest.updateChangesTeam">
     <configuration default="false" name="Sql2oTeamDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -647,6 +621,32 @@
       <option name="PACKAGE_NAME" value="dao" />
       <option name="MAIN_CLASS_NAME" value="dao.Sql2oTeamDaoTest" />
       <option name="METHOD_NAME" value="existingTeamsCanBeFoundByID" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="Sql2oTeamDaoTest.updateChangesTeam" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="hackathon_test" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="dao" />
+      <option name="MAIN_CLASS_NAME" value="dao.Sql2oTeamDaoTest" />
+      <option name="METHOD_NAME" value="updateChangesTeam" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -874,19 +874,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest.addingTeamSetsId" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest.exisitingTeamsCanBeFoundByID" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest.getAll_allTeamsAreFound" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest.existingTeamsCanBeFoundByID" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest.exisitingTeamsCanBeFoundByID" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest.getAll_allTeamsAreFound" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest.existingTeamsCanBeFoundByID" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest.updateChangesTeam" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest.existingTeamsCanBeFoundByID" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest.getAll_allTeamsAreFound" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest.exisitingTeamsCanBeFoundByID" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest.addingTeamSetsId" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest.updateChangesTeam" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest.existingTeamsCanBeFoundByID" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest.getAll_allTeamsAreFound" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.Sql2oTeamDaoTest.exisitingTeamsCanBeFoundByID" />
       </list>
     </recent_temporary>
   </component>
@@ -904,17 +904,8 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Sql2oTeamDaoTest - 2017.08.18 at 10h 02m 30s.xml">
+    <history-entry file="Sql2oTeamDaoTest - 2017.08.18 at 11h 33m 18s.xml">
       <configuration name="Sql2oTeamDaoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Sql2oTeamDaoTest - 2017.08.18 at 10h 08m 36s.xml">
-      <configuration name="Sql2oTeamDaoTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Sql2oTeamDaoTest_addingTeamSetsId - 2017.08.18 at 10h 04m 07s.xml">
-      <configuration name="Sql2oTeamDaoTest.addingTeamSetsId" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="Sql2oTeamDaoTest_addingTeamSetsId - 2017.08.18 at 10h 04m 51s.xml">
-      <configuration name="Sql2oTeamDaoTest.addingTeamSetsId" configurationId="JUnit" />
     </history-entry>
     <history-entry file="Sql2oTeamDaoTest_existingTeamsCanBeFoundByID - 2017.08.18 at 11h 18m 53s.xml">
       <configuration name="Sql2oTeamDaoTest.existingTeamsCanBeFoundByID" configurationId="JUnit" />
@@ -933,6 +924,15 @@
     </history-entry>
     <history-entry file="Sql2oTeamDaoTest_getAll_allTeamsAreFound - 2017.08.18 at 11h 00m 20s.xml">
       <configuration name="Sql2oTeamDaoTest.getAll_allTeamsAreFound" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Sql2oTeamDaoTest_updateChangesTeam - 2017.08.18 at 11h 32m 18s.xml">
+      <configuration name="Sql2oTeamDaoTest.updateChangesTeam" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Sql2oTeamDaoTest_updateChangesTeam - 2017.08.18 at 11h 32m 57s.xml">
+      <configuration name="Sql2oTeamDaoTest.updateChangesTeam" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Sql2oTeamDaoTest_updateChangesTeam - 2017.08.18 at 11h 33m 43s.xml">
+      <configuration name="Sql2oTeamDaoTest.updateChangesTeam" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -981,8 +981,16 @@
           <line>41</line>
           <properties />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/dao/Sql2oTeamDaoTest.java</url>
+          <line>65</line>
+          <properties class="dao.Sql2oTeamDaoTest" method="updateChangesTeam">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1236,16 +1244,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/dao/Sql2oTeamDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="34" column="10" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/models/Team.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1268,8 +1266,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/TeamDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="5" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        <state relative-caret-position="90">
+          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1297,8 +1295,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/Sql2oTeamDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="47" column="50" lean-forward="false" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
+        <state relative-caret-position="190">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/dao/Sql2oTeamDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="71" column="30" lean-forward="false" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
