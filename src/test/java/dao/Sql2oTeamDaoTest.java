@@ -11,9 +11,7 @@ import org.sql2o.Sql2oException;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Guest on 8/18/17.
- */
+
 public class Sql2oTeamDaoTest {
 
     private Sql2oTeamDao teamDao;

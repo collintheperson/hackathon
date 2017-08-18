@@ -5,11 +5,12 @@ package models;
  */
 public class Member {
     private String memberName;
-    private int badgeNumber;
+    private int badge;
+    private int id;
 
-    public Member ( String memberName, int badgeNumber) {
+    public Member ( String memberName, int badge) {
         this.memberName=memberName;
-        this.badgeNumber=badgeNumber;
+        this.badge=badge;
     }
 
     public String getMemberName() {
@@ -21,11 +22,19 @@ public class Member {
     }
 
     public int getBadgeNumber() {
-        return badgeNumber;
+        return badge;
     }
 
-    public void setBadgeNumber(int badgeNumber) {
-        this.badgeNumber = badgeNumber;
+    public void setBadgeNumber(int badge) {
+        this.badge = badge;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
@@ -35,14 +44,14 @@ public class Member {
 
         Member member = (Member) o;
 
-        if (badgeNumber != member.badgeNumber) return false;
+        if (badge != member.badge) return false;
         return memberName.equals(member.memberName);
     }
 
     @Override
     public int hashCode() {
         int result = memberName.hashCode();
-        result = 31 * result + badgeNumber;
+        result = 31 * result + badge;
         return result;
     }
 }
