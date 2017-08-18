@@ -12,10 +12,10 @@ public interface TeamDao {
     //create
     void add (Team team);
     //read
- //   List<Team> getAll();
+  List<Team> getAll();
   //  List<Review> getAllReviewsByTeam(int teamId);
 
- //   Team findById(int id);
+  // Team findById(int id);
     //    //update
 //    void update(int id, String name, String location);
     //    //delete

@@ -17,7 +17,7 @@ public class Team {
             this.name=name;
             this.description=description;
     //        instances.add(this);
-            this.id= id;
+
         }
 
  //   public static void clearAllTeams()  {

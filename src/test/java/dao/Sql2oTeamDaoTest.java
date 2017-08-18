@@ -45,13 +45,23 @@ public class Sql2oTeamDaoTest {
         assertNotEquals(originalTeamId, team.getId()); //how does this work?
     }
 
-    @Test
-    public void exisitingTeamsCanBeFoundByID()  throws Exception    {
-        Team team = setupNewTeam();
-        teamDao.add(team);
-        Team foundTeam = teamDao.findByID(team.getId());
-        assertEquals(team, foundTeam);
-    }
+//    @Test
+//    public void existingTeamsCanBeFoundByID()  throws Exception    {
+//        Team team = setupNewTeam();
+//        teamDao.add(team);
+//        Team foundTeam = teamDao.findById(team.getId());
+//        assertEquals(team, foundTeam);
+//    }
+      @Test
+      public void getAll_allTeamsAreFound () throws Exception {
+         Team team = setupNewTeam();
+         Team anotherTeam = new Team ("dudes", "we code");
+         teamDao.add(team);
+         teamDao.add(anotherTeam);
+         int number = teamDao.getAll().size();
+          System.out.println(number);
+         assertEquals(2,number);
+}
 
 
 
