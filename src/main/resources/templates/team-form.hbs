@@ -1,12 +1,12 @@
 {{#partial "content"}}
 
-    {{#if editTeams}}
+    {{#if editTeam}}
         <h1>Edit this Team!</h1>
-        <form action="/teams/{{editTeams.id}}/update" method="post">
+        <form action="/teams/{{editTeam.id}}/update" id="editTeamId" method="post" select name="editTeamId">
             <label for="name">Edit this teams name.</label>
-            <input id="name" name="name" type="text" value="{{editTeams.name}}"><br>
+            <input id="name" name="name" type="text" value="{{editTeam.name}}"><br>
             <label for="description">Edit this team's description and add other members names!</label>
-            <input id="description" name="description" type="text" value="{{editTeams.description}}"><br>
+            <input id="description" name="description" type="text" value="{{editTeam.description}}"><br>
 
         {{else}}
 
