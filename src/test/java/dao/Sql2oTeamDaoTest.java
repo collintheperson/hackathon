@@ -72,6 +72,14 @@ public class Sql2oTeamDaoTest {
         assertEquals("the wondercoders", updatedTeam.getName());
     }
 
+    @Test
+    public void deleteById_deletesVeryWell () {
+        Team team = setupNewTeam();
+        teamDao.add(team);
+        teamDao.deleteById(team.getId());
+        assertEquals(1,teamDao.getAll().size());
+    }
+
 
 
     //Helper
