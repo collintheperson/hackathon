@@ -49,8 +49,26 @@ public class Sql2oMemberDaoTest {
         System.out.println(number);
         assertEquals(2,number);
     }
+    @Test
+    public void existingMembersCanBeFoundByID()  throws Exception    {
+        Member member = setupNewMember();
+        memberDao.add(member);
+        Member foundMember = memberDao.findById(member.getId());
+        assertEquals(member, foundMember);
+    }
+
+    @Test
+    public void updateChangesMember() throws Exception {
+        Member member = new Member("The exiled", 31);
+        memberDao.add(member);
+
+        memberDao.update(1, "the wondercoders", 21);
+        Member updatedMember = memberDao.findById(member.getId()); //why do I need to refind this?
+        assertEquals(21, updatedMember.getBadgeNumber());
+    }
 
     public Member setupNewMember()  {
         return new Member("Frank Ocean", 112);
     }
+
 }

@@ -13,4 +13,8 @@ public interface MemberDao {
     void add (Member member);
 
     List<Member> getAll();
+
+    Member findById(int id);
+
+    void update(int id, String memberName, int badge);
 }

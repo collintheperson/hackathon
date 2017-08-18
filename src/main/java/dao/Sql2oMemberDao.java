@@ -39,4 +39,23 @@ public class Sql2oMemberDao implements MemberDao {
                     .executeAndFetch(Member.class);
         }
     }
+    public Member findById(int id) {
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM members WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Member.class);
+        }
+    }
+    public void update(int id, String newMemberName, int newBadge){
+        String sql = "UPDATE members SET (memberName, badge) = (:memberName, :badge) WHERE id=:id"; //raw sql
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("memberName", newMemberName)
+                    .addParameter("badge", newBadge)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
 }
