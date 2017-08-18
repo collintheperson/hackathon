@@ -69,7 +69,7 @@ public class Sql2oTeamDaoTest {
 
         teamDao.update(1, "the wondercoders", "Superthemed coders that also wear capes");
         Team updatedTeam = teamDao.findById(team.getId()); //why do I need to refind this?
-        assertEquals("the fasf", updatedTeam.getName());
+        assertEquals("the wondercoders", updatedTeam.getName());
     }
 
 
