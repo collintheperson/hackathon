@@ -55,7 +55,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
         //get: delete an individual task
 
-        get("/teams/id", (req, res) -> {
+        get("/teams/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfTeamToFind = Integer.parseInt(req.params("id"));
             Team foundTeam = teamDao.findById(idOfTeamToFind); //use it to find post
@@ -72,13 +72,13 @@ public class App {
 //        }, new HandlebarsTemplateEngine());
 
         //get: delete all teams
-        get("/teams/delete", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            teamDao.clearAllTeams();
-            return new ModelAndView(model, "team-form.hbs");
-        }, new HandlebarsTemplateEngine());
+//        get("/teams/delete", (req, res) -> {
+//            Map<String, Object> model = new HashMap<>();
+//            teamDao.clearAllTeams();
+//            return new ModelAndView(model, "team-form.hbs");
+//        }, new HandlebarsTemplateEngine());
 
-        get("/team/update", (req, res) -> {
+        get("/team/:update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("editTeam", true);
             List<Team> allTeam = teamDao.getAll();
@@ -96,7 +96,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-        post("/teams/:id/update", (req, res) -> {
+        post("/teams/id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfTeamToEdit = Integer.parseInt(req.params("id")); //What is up with this line
             String newName = req.queryParams("name");
@@ -117,5 +117,5 @@ public class App {
 //            model.put("members",foundmember);
 //            return new ModelAndView(model,"member-detail.hbs");
 //        }, new HandlebarsTemplateEngine());
-//    }
+    }
 }
