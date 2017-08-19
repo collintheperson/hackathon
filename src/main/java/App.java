@@ -5,6 +5,7 @@ import java.util.Map;
 import dao.Sql2oTeamDao;
 import dao.Sql2oTeamDao;
 import dao.TeamDao;
+import models.Member;
 import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.Request;
@@ -70,7 +71,7 @@ public class App {
 //            return new ModelAndView(model, "index.hbs");
 //        }, new HandlebarsTemplateEngine());
 
-        //get: delete all tasks
+        //get: delete all teams
         get("/teams/delete", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             teamDao.clearAllTeams();
@@ -109,5 +110,12 @@ public class App {
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-    }
+//        get("/teams/:teams_id/members/:members_id", (req, res) ->  {
+//            Map<String, Object> model = new HashMap<>();
+//            int idOfMemberToFind = Integer.parseInt(req.params("member_id"));
+//            Member foundmember = memberDao.findById(req.params(idOfMemberToFind);
+//            model.put("members",foundmember);
+//            return new ModelAndView(model,"member-detail.hbs");
+//        }, new HandlebarsTemplateEngine());
+//    }
 }
