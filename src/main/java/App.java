@@ -84,6 +84,7 @@ public class App {
             int idOfTeamToFind = Integer.parseInt(req.params("id"));
             Team foundTeam = teamDao.findById(idOfTeamToFind); //use it to find post
             model.put("teams", foundTeam); //add it to model for template to display
+
             return new ModelAndView(model, "team-detail.hbs"); //individual post page.
         }, new HandlebarsTemplateEngine());
 
@@ -95,7 +96,7 @@ public class App {
 //            return new ModelAndView(model, "index.hbs");
 //        }, new HandlebarsTemplateEngine());
 
-        //get: delete all teams
+//        get: delete all teams
 //        get("/teams/delete", (req, res) -> {
 //            Map<String, Object> model = new HashMap<>();
 //            teamDao.clearAllTeams();
@@ -130,6 +131,9 @@ public class App {
             teamDao.update(teamDao.findById(idOfTeamToEdit).getId(), newName, newDescription);
             List<Team> teams = teamDao.getAll();
             model.put("teams", teams);
+
+            Team team = teamDao.findById(idOfTeamToEdit);
+            model.put("id",idOfTeamToEdit);
 
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
