@@ -1,6 +1,7 @@
 package dao;
 
 import models.Member;
+import models.Team;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
@@ -19,13 +20,15 @@ public class Sql2oMemberDao implements MemberDao {
     }
 
     public void add(Member member) {
-        String sql = "INSERT INTO members (memberName, badge) VALUES (:memberName,:badge)";
+        String sql = "INSERT INTO members (memberName, badge, teamId) VALUES (:memberName,:badge, :teamId)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql)
                     .addParameter("memberName", member.getMemberName())
                     .addParameter("badge", member.getBadgeNumber())
+                    .addParameter("teamId", member.getTeamId())
                     .addColumnMapping("NAME", "memberName")
-                    .addColumnMapping("DESCRIPTION", "badge")
+                    .addColumnMapping("BADGE", "badge")
+                    .addColumnMapping("TEAMID","teamId")
                     .executeUpdate()
                     .getKey();
             member.setId(id);

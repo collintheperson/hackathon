@@ -32,6 +32,21 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Member> members = memberDao.getAll();
+            model.put("members", members);
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
+//        get: delete all teams
+        get("/teams/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            teamDao.clearAllTeams();
+            return new ModelAndView(model, "team-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
         get("/teams/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "team-form.hbs");
@@ -58,16 +73,17 @@ public class App {
 
         post("/teams/members/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-
             String memberName = request.queryParams("memberName");
             int badge = Integer.parseInt(request.queryParams("badge"));
+  //          int memberId = Integer.parseInt(request.queryParams("id"));
             Member newMember = new Member(memberName, badge);
             System.out.println(newMember);
             System.out.println(badge);
             memberDao.add(newMember);
             System.out.println(newMember);
             List <Member> members = memberDao.getAll();
-            model.put("members", members);
+            model.put("newMember", newMember);
+            
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -96,12 +112,6 @@ public class App {
 //            return new ModelAndView(model, "index.hbs");
 //        }, new HandlebarsTemplateEngine());
 
-//        get: delete all teams
-//        get("/teams/delete", (req, res) -> {
-//            Map<String, Object> model = new HashMap<>();
-//            teamDao.clearAllTeams();
-//            return new ModelAndView(model, "team-form.hbs");
-//        }, new HandlebarsTemplateEngine());
 
         get("/teams/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();

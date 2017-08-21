@@ -36,7 +36,6 @@ public class Sql2oTeamDaoTest {
     }
     @Test
     public void addingTeamSetsId() throws Exception {
-        System.out.println();
         Team team = setupNewTeam();
         int originalTeamId = team.getId();
         teamDao.add(team);

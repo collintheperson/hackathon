@@ -1,16 +1,16 @@
 package models;
 
-/**
- * Created by Guest on 8/18/17.
- */
+
 public class Member {
     private String memberName;
     private int badge;
     private int id;
+    private int teamId;
 
     public Member ( String memberName, int badge) {
         this.memberName=memberName;
         this.badge=badge;
+        this.teamId=teamId;
     }
 
     public String getMemberName() {
@@ -37,6 +37,14 @@ public class Member {
         this.id = id;
     }
 
+    public int getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -45,6 +53,8 @@ public class Member {
         Member member = (Member) o;
 
         if (badge != member.badge) return false;
+        if (id != member.id) return false;
+        if (teamId != member.teamId) return false;
         return memberName.equals(member.memberName);
     }
 
@@ -52,6 +62,8 @@ public class Member {
     public int hashCode() {
         int result = memberName.hashCode();
         result = 31 * result + badge;
+        result = 31 * result + id;
+        result = 31 * result + teamId;
         return result;
     }
 }
