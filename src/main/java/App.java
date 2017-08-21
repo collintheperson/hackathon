@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import dao.Sql2oMemberDao;
 import dao.Sql2oTeamDao;
 import dao.Sql2oTeamDao;
 import dao.TeamDao;
@@ -20,7 +22,7 @@ public class App {
         String connectionString = "jdbc:h2:~/todolist.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         Sql2oTeamDao teamDao = new Sql2oTeamDao(sql2o);
-        Sql2oTeamDao memberDao = new Sql2oTeamDao(sql2o);
+        Sql2oMemberDao memberDao = new Sql2oMemberDao(sql2o);
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -30,12 +32,12 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/teams/new", (request, response) -> {
+        get("/teams/:id/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/teams/new", (request, response) -> {
+        post("/teams/:id/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
 
             String name = request.queryParams("name");
@@ -44,6 +46,23 @@ public class App {
             teamDao.add(newTeam);
             List<Team> teams = teamDao.getAll();
             model.put("team", teams);
+            return new ModelAndView(model, "team-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/teams/:id/members/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "member-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/teams/:id/members/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+
+            String memberName = request.queryParams("memberName");
+            int badge = Integer.parseInt(request.queryParams("badge"));
+            Member newMember = new Member(memberName, badge);
+            memberDao.add(newMember);
+            List <Member> members = memberDao.getAll();
+            model.put("members", members);
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -78,11 +97,11 @@ public class App {
 //            return new ModelAndView(model, "team-form.hbs");
 //        }, new HandlebarsTemplateEngine());
 
-        get("/team/:update", (req, res) -> {
+        get("/teams/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("editTeam", true);
             List<Team> allTeam = teamDao.getAll();
-            model.put("team", allTeam);
+            model.put("teams", allTeam);
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -96,7 +115,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
 
-        post("/teams/id/update", (req, res) -> {
+        post("/teams/:id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfTeamToEdit = Integer.parseInt(req.params("id")); //What is up with this line
             String newName = req.queryParams("name");
@@ -104,8 +123,8 @@ public class App {
             Team editTeam = teamDao.findById(idOfTeamToEdit);
 
             teamDao.update(teamDao.findById(idOfTeamToEdit).getId(), newName, newDescription);
-            List<Team> team = teamDao.getAll();
-            model.put("team", team);
+            List<Team> teams = teamDao.getAll();
+            model.put("teams", teams);
 
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
