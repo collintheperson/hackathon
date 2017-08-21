@@ -32,12 +32,12 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/teams/:id/new", (request, response) -> {
+        get("/teams/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/teams/:id/new", (request, response) -> {
+        post("/teams/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
 
             String name = request.queryParams("name");
@@ -51,16 +51,21 @@ public class App {
 
         get("/teams/:id/members/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
+            System.out.println("hello");
             return new ModelAndView(model, "member-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/teams/:id/members/new", (request, response) -> {
+
+        post("/teams/members/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
 
             String memberName = request.queryParams("memberName");
             int badge = Integer.parseInt(request.queryParams("badge"));
             Member newMember = new Member(memberName, badge);
+            System.out.println(newMember);
+            System.out.println(badge);
             memberDao.add(newMember);
+            System.out.println(newMember);
             List <Member> members = memberDao.getAll();
             model.put("members", members);
             return new ModelAndView(model, "team-form.hbs");
@@ -72,7 +77,7 @@ public class App {
             model.put("teams", teams);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
-        //get: delete an individual task
+//        get: delete an individual task
 
         get("/teams/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();

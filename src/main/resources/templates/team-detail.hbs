@@ -20,17 +20,12 @@
     <p> {{ members.badge }}</p>
     <h5> Badge:</h5>
 
-    <form action="/teams/{{id}}/members/new" method="post">
-        <label for="memberName"> Add a person</label>
-        <input id="memberName" name="memberName" type="text">
-        <label for="badge">Enter your desired badge number</label>
-        <input id="badge" name="badge" type="number value"<br>
 
         <button type="submit" class="btn btn-default">Go!</button>
 
         <a href="/teams/{{teams.id}}/update">Edit this team</a><br>
 
-    <a href="/teams/{{teams.id}}/members">Add a new member</a><br>
+    <a href="/teams/{{teams.id}}/members/new">Add a new member</a><br>
 
 
 
