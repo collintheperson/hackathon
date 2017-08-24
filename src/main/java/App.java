@@ -88,6 +88,13 @@ public class App {
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/members", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Member> members = memberDao.getAll();
+            model.put("members", members);
+            return new ModelAndView(model, "member-detail.hbs");
+                }, new HandlebarsTemplateEngine());
+
         get("/teams/:teamId/members/memberId",  (req,res) -> {
             Map<String,Object> model = new HashMap<>();
             Member member = memberDao.findById(Integer.parseInt(req.params("memberId")));
