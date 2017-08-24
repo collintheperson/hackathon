@@ -66,7 +66,6 @@ public class App {
 
         get("/teams/:id/members/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            System.out.println("hello");
             return new ModelAndView(model, "member-form.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -81,11 +80,22 @@ public class App {
             System.out.println(badge);
             memberDao.add(newMember);
             System.out.println(newMember);
+            List<Team> teamList = teamDao.getAll();
+            model.put("teams",teamList);
             List <Member> members = memberDao.getAll();
-            model.put("newMember", newMember);
+            model.put("newMember", members);
             
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
+
+        get("/teams/:teamId/members/memberId",  (req,res) -> {
+            Map<String,Object> model = new HashMap<>();
+            Member member = memberDao.findById(Integer.parseInt(req.params("memberId")));
+            model.put("member", member);
+            List<Team> teams = teamDao.getAll();
+            model.put("team",teams);
+            return new ModelAndView(model, "member-detail.hbs");
+        },   new HandlebarsTemplateEngine());
 
         get("/teams", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
