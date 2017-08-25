@@ -13,7 +13,8 @@ public interface TeamDao {
     void add (Team team);
     //read
   List<Team> getAll();
-  //  List<Review> getAllReviewsByTeam(int teamId);
+
+
 
 Team findById(int id);
     //    //update

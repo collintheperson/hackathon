@@ -1,7 +1,6 @@
 package dao;
 
 import models.Member;
-import models.Team;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
@@ -81,4 +80,22 @@ public class Sql2oMemberDao implements MemberDao {
             System.out.println(ex);
         }
     }
+//    @Override
+//    public List<Member> getAllMembersByTeam(int teamId)   {
+//        try (Connection con = sql2o.open()) {
+//            return con.createQuery("SELECT * FROM members WHERE teamId = :teamId")
+//                    .addParameter("teamid",teamId)
+//                    .executeAndFetch(Member.class);
+//        }
+//    }
+        @Override
+        public List<Member> getAllMembersByTeam(int teamId) {
+            try(Connection con = sql2o.open()) {
+                return con.createQuery("SELECT * FROM members WHERE teamId = :teamId")
+                .addParameter("teamId", teamId)
+                .executeAndFetch(Member.class);
+    }
+
+}
+
 }

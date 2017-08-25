@@ -1,5 +1,6 @@
 package dao;
 
+import models.Member;
 import models.Team;
 import org.junit.After;
 import org.junit.Before;
@@ -9,12 +10,15 @@ import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 
 public class Sql2oTeamDaoTest {
 
     private Sql2oTeamDao teamDao;
+    private Sql2oMemberDao memberDao;
     private Connection con;
 
 
@@ -23,7 +27,8 @@ public class Sql2oTeamDaoTest {
     public void setUp() throws Exception {
         String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
-        teamDao = new Sql2oTeamDao(sql2o); //ignore me for now
+        teamDao = new Sql2oTeamDao(sql2o);
+        memberDao = new Sql2oMemberDao(sql2o);
 
         //keep connection open through entire test so it does not get erased.
         con = sql2o.open();
@@ -51,14 +56,28 @@ public class Sql2oTeamDaoTest {
     }
       @Test
       public void getAll_allTeamsAreFound () throws Exception {
-         Team team = setupNewTeam();
-         Team anotherTeam = new Team ("dudes", "we code");
-         teamDao.add(team);
-         teamDao.add(anotherTeam);
-         int number = teamDao.getAll().size();
-          System.out.println(number);
-         assertEquals(2,number);
-}
+          Team team = setupNewTeam();
+          Team anotherTeam = new Team("dudes", "we code");
+          teamDao.add(team);
+          teamDao.add(anotherTeam);
+          int number = teamDao.getAll().size();
+          assertEquals(2, number);
+
+      }
+
+    @Test
+    public void getAllMembersByTeam_returnsAllMembers() throws Exception {
+        Member newMember = new Member("Hi",1,1);
+        Member newMember2 = new Member( "none", 42, 1);
+        Member newMember3 = new Member( "none", 12521, 2);
+        memberDao.add(newMember);
+        memberDao.add(newMember2);
+        memberDao.add(newMember3);
+        List teamSize = memberDao.getAllMembersByTeam(1);
+        assertEquals(2, teamSize.size());
+    }
+
+
     @Test
     public void updateChangesTeam() throws Exception {
         Team team = new Team ("The exiled", "Our code got us exiled from ourselves");

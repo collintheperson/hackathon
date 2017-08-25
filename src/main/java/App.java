@@ -46,12 +46,22 @@ public class App {
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-
+//      show a team form
         get("/teams/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
+
+
+        get("/teams/:id/members/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int teamId = Integer.parseInt(request.params("id"));
+            model.put("teamId",teamId);
+            return new ModelAndView(model, "member-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //process a new team
         post("/teams/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
 
@@ -64,29 +74,22 @@ public class App {
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        get("/teams/:id/members/new", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "member-form.hbs");
-        }, new HandlebarsTemplateEngine());
+        //process a new member, work on this it finds a member but isn't correctly linking, but it is maybe check handlebars?
+        post("/teams/:id/members/new", (request, response) -> {
+                    Map<String, Object> model = new HashMap<String, Object>();
+                    String memberName = request.queryParams("memberName");
+                    int badge = Integer.parseInt(request.queryParams("badge"));
+                    int teamId = Integer.parseInt((request.params("id")));
+                    Member newMember = new Member(memberName, badge, teamId);
+                    memberDao.add(newMember);
+//                    List<Member> members = memberDao.getAll();
+                    model.put("members",newMember);
+                    response.redirect("/teams/" + teamId);
+                    return null;
 
-
-        post("/teams/members/new", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            String memberName = request.queryParams("memberName");
-            int badge = Integer.parseInt(request.queryParams("badge"));
-  //          int memberId = Integer.parseInt(request.queryParams("id"));
-            Member newMember = new Member(memberName, badge);
-            System.out.println(newMember);
-            System.out.println(badge);
-            memberDao.add(newMember);
-            System.out.println(newMember);
-            List<Team> teamList = teamDao.getAll();
-            model.put("teams",teamList);
-            List <Member> members = memberDao.getAll();
-            model.put("newMember", members);
-            
-            return new ModelAndView(model, "team-form.hbs");
-        }, new HandlebarsTemplateEngine());
+//            List<Team> teamList = teamDao.getAll();
+//                    model.put("teams", teamList);
+                });
 
         get("/members", (request, response) -> {
             Map<String, Object> model = new HashMap<>();

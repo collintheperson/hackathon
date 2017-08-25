@@ -8,11 +8,14 @@
     <h5> Team status:</h5>
 
 
-
-    <p>{{ members.membersName}}</p>
+    {{#if members}}
+        {{#each members}}
+    <p>{{ memberName}}</p>
     <h5>Member name:</h5>
-    <p> {{ members.badge }}</p>
+    <p> {{ badge }}</p>
     <h5> Badge:</h5>
+        {{/each}}
+    {{/if}}
 
 
 

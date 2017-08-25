@@ -2,17 +2,17 @@
 
     <p>Team Name:</p>
 
-    <p>{{ member.memberName}}</p>
+    <p>{{ team.memberName}}</p>
     <h5>Member Name:</h5>
     <p> {{ member.badge }}</p>
     <h5> Badge Number:</h5>
     <p>
 
-        <form action="/teams/members/new" method="post">
+        <form action="/teams/{{teamId}}/members/new" method="post">
             <label for="memberName"> Add a person</label>
             <input id="memberName" name="memberName" type="text">
             <label for="badge">Enter your desired badge number</label>
-            <input id="badge" name="badge" type="number value"<br>
+        <input id="badge" name="badge" type="number value"<br>
 
 
         <a href="/teams/{{teams.id}}/update">Edit this team</a><br>
