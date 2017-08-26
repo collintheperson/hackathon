@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS teams (
 );
 CREATE TABLE IF NOT EXISTS members (
   id int PRIMARY KEY auto_increment,
-  memberName VARCHAR,
-  badge INT,
+  membername VARCHAR,
+  badge INTEGER,
   teamid INTEGER
 );

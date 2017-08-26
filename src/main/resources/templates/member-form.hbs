@@ -10,9 +10,9 @@
 
         <form action="/teams/{{teamId}}/members/new" method="post">
             <label for="memberName"> Add a person</label>
-            <input id="memberName" name="memberName" type="text">
+            <input id="memberName" name="memberName" type="text" required>
             <label for="badge">Enter your desired badge number</label>
-        <input id="badge" name="badge" type="number value"<br>
+        <input id="badge" name="badge" type="number" required<br>
 
 
         <a href="/teams/{{teams.id}}/update">Edit this team</a><br>
@@ -22,7 +22,7 @@
 
 
         <button type="submit" class="btn btn-default">Go!</button>
-
+     </form>
 
 
 {{/partial}}

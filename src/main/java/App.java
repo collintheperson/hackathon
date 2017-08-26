@@ -19,7 +19,7 @@ import models.Team;
 public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
-        String connectionString = "jdbc:h2:~/todolist.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        String connectionString = "jdbc:h2:~/greatdatabase.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         Sql2oTeamDao teamDao = new Sql2oTeamDao(sql2o);
         Sql2oMemberDao memberDao = new Sql2oMemberDao(sql2o);
@@ -74,7 +74,7 @@ public class App {
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //process a new member, work on this it finds a member but isn't correctly linking, but it is maybe check handlebars?
+        //process a new member, work on this it finds a member but isn't correctly linking, its not saving currently? Also it dosen't
         post("/teams/:id/members/new", (request, response) -> {
                     Map<String, Object> model = new HashMap<String, Object>();
                     String memberName = request.queryParams("memberName");
@@ -82,8 +82,9 @@ public class App {
                     int teamId = Integer.parseInt((request.params("id")));
                     Member newMember = new Member(memberName, badge, teamId);
                     memberDao.add(newMember);
-//                    List<Member> members = memberDao.getAll();
-                    model.put("members",newMember);
+            System.out.println(teamId);
+                    List<Member> member = memberDao.getAll();
+                    model.put("members", newMember);    //what should i put in the model, is this the problem of storing
                     response.redirect("/teams/" + teamId);
                     return null;
 
