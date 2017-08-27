@@ -6,13 +6,13 @@
     <h5>Description:</h5>
     <p> {{ teams.description }}</p>
     <h5> Team status:</h5>
-
+    <p> {{ teams.teamid.members }}</p>
 
     {{#if members}}
         {{#each members}}
-    <p>{{ memberName}}</p>
+    <p>{{ members.memberName}}</p>
     <h5>Member name:</h5>
-    <p> {{ badge }}</p>
+    <p> {{ members.badge }}</p>
     <h5> Team Number:</h5>
         {{/each}}
     {{/if}}
