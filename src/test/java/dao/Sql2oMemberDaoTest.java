@@ -1,7 +1,7 @@
 package dao;
 
 import models.Member;
-import models.Team;
+import models.Member;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,15 +13,15 @@ import static org.junit.Assert.*;
 
 public class Sql2oMemberDaoTest {
 
+
     private Sql2oMemberDao memberDao;
-    private Sql2oTeamDao teamDao;
     private Connection con;
     @Before
     public void setUp() throws Exception {
         String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         memberDao = new Sql2oMemberDao(sql2o); //ignore me for now
-        teamDao = new Sql2oTeamDao(sql2o);
+        memberDao = new Sql2oMemberDao(sql2o);
 
         //keep connection open through entire test so it does not get erased.
         con = sql2o.open();
@@ -51,7 +51,7 @@ public class Sql2oMemberDaoTest {
         assertEquals(2,memberDao.getAll().size());
     }
     @Test
-    public void getAll_MembersByTeam    ()  throws Exception    {
+    public void getAll_MembersByMember    ()  throws Exception    {
         Member member = setupNewMember();
         Member member2 = new Member ("Boyle",2,1);
         memberDao.add(member);
@@ -84,6 +84,16 @@ public class Sql2oMemberDaoTest {
         memberDao.add(member);
         memberDao.deleteById(member.getId());
         assertEquals(0,memberDao.getAll().size());
+    }
+
+    @Test
+    public void clearAllMembers() {
+        Member member = setupNewMember();
+        Member anotherMember = new Member("teeth people",1,2);
+        memberDao.add(member);
+        memberDao.add(anotherMember);
+        memberDao.clearAllMembers();
+        assertEquals(0, memberDao.getAll().size());
     }
 
 

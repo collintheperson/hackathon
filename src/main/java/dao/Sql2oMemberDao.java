@@ -71,8 +71,8 @@ public class Sql2oMemberDao implements MemberDao {
         }
     }
 
-    public void clearAllCategories() {
-        String sql = "DELETE from teams";
+    public void clearAllMembers() {
+        String sql = "DELETE from members";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
                     .executeUpdate();

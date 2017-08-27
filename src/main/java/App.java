@@ -46,6 +46,13 @@ public class App {
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //get: delete all members
+        get("/members/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            memberDao.clearAllMembers();
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
 //      show a team form
         get("/teams/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -74,7 +81,7 @@ public class App {
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //process a new member, work on this it finds a member but isn't correctly linking, its not saving currently? Also it dosen't
+        //process a new member
         post("/teams/:id/members/new", (request, response) -> {
                     Map<String, Object> model = new HashMap<String, Object>();
                     String memberName = request.queryParams("memberName");
@@ -82,9 +89,10 @@ public class App {
                     int teamId = Integer.parseInt((request.params("id")));
                     Member newMember = new Member(memberName, badge, teamId);
                     memberDao.add(newMember);
-            System.out.println(teamId);
+            System.out.println(badge);
                     List<Member> member = memberDao.getAll();
-                    model.put("members", newMember);    //what should i put in the model, is this the problem of storing
+            System.out.println(badge);
+                    model.put("members", newMember);
                     response.redirect("/teams/" + teamId);
                     return null;
 
@@ -102,7 +110,7 @@ public class App {
         get("/teams/:teamId/members/memberId",  (req,res) -> {
             Map<String,Object> model = new HashMap<>();
             Member member = memberDao.findById(Integer.parseInt(req.params("memberId")));
-            model.put("member", member);
+            model.put("members", member);
             List<Team> teams = teamDao.getAll();
             model.put("team",teams);
             return new ModelAndView(model, "member-detail.hbs");
@@ -128,7 +136,7 @@ public class App {
 //        get("/teams/:id/delete", (req, res) -> {
 //            Map<String, Object> model = new HashMap<>();
 //            int idOfTeamToDelete = Integer.parseInt(req.params("id")); //pull id - must match route segment
-//            //    Team deleteTeam = teamDao.findById(idOfTeamToDelete); //use it to find task
+//                Team deleteTeam = teamDao.findById(idOfTeamToDelete); //use it to find task
 //            teamDao.deleteById(idOfTeamToDelete);
 //            return new ModelAndView(model, "index.hbs");
 //        }, new HandlebarsTemplateEngine());

@@ -21,5 +21,7 @@ public interface MemberDao {
     void update(int id, String memberName, int badge);
 
     void deleteById(int id);
+    void clearAllMembers();
+
 
 }

@@ -2,10 +2,20 @@
 
     <p>Member Name:</p>
 
-    <p>{{ members.memberName}}</p>
-    <h5>The individuals name:</h5>
-    <p> {{ members.badge }}</p>
-    <h5> Their badge number</h5>
+    {{#if members}}
+        {{#each members}}
+            <h5>Member name:</h5>
+            <p>{{ memberName}}</p>
+            <h5> Badge:</h5>
+            <p> {{ badge }}</p>
+            <p>{{teamId}}</p>
+
+        {{/each}}
+    {{/if}}
+    <!--<p>{{ members.memberName}}</p>-->
+    <!--<h5>The individuals name:</h5>-->
+    <!--<p> {{ members.badge }}</p>-->
+    <!--<h5> Their badge number</h5>-->
 
 
 
