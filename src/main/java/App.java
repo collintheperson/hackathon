@@ -50,7 +50,7 @@ public class App {
         get("/members/delete", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             memberDao.clearAllMembers();
-            return new ModelAndView(model, "success.hbs");
+            return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
 //      show a team form
