@@ -19,7 +19,7 @@ import models.Team;
 public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
-        String connectionString = "jdbc:h2:~/greatdatabase.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        String connectionString = "jdbc:h2:~/database2.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         Sql2oTeamDao teamDao = new Sql2oTeamDao(sql2o);
         Sql2oMemberDao memberDao = new Sql2oMemberDao(sql2o);
@@ -127,8 +127,8 @@ public class App {
         //form to update member
         get("/teams/:id/members/:membersId/update", (request, response) -> {
             Map<String,Object> model = new HashMap<>();
-            int idOfMembermToEdit = Integer.parseInt(request.params("id"));
-            Member editMember = memberDao.findById(idOfMembermToEdit);
+            int idOfMemberToEdit = Integer.parseInt(request.params("id"));
+            Member editMember = memberDao.findById(idOfMemberToEdit);
             int memberId = Integer.parseInt(request.params("membersId"));
             model.put("memberId",memberId);
             model.put("editMember",editMember);
@@ -138,13 +138,16 @@ public class App {
 //        process an updated member
       post("/teams/:id/members/:membersId/update", (request, response) -> {
           Map<String,Object> model =  new HashMap<>();
-          String memberName = request.queryParams("membername");
+          String memberName = request.queryParams("memberName");
           int badge = Integer.parseInt(request.queryParams("badge"));
           int id = Integer.parseInt(request.params("id"));
-          int teamId = Integer.parseInt(request.params("teamId"));
-          Team team = teamDao.findById(teamId);
+          int memberId = Integer.parseInt(request.params("membersId"));
+          Team team = teamDao.findById(id);
+//          model.put("team", team);
           memberDao.update(id,memberName,badge);
-          response.redirect("/teams" + teamId);
+          model.put("memberName",memberName);
+          model.put("badge",badge);
+          response.redirect("/teams/" + id);
           return null;
       });
 
@@ -171,12 +174,6 @@ public class App {
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-//        get("/teams/:teams_id/members/:members_id", (req, res) ->  {
-//            Map<String, Object> model = new HashMap<>();
-//            int idOfMemberToFind = Integer.parseInt(req.params("member_id"));
-//            Member foundmember = memberDao.findById(req.params(idOfMemberToFind);
-//            model.put("members",foundmember);
-//            return new ModelAndView(model,"member-detail.hbs");
-//        }, new HandlebarsTemplateEngine());
+
     }
 }
