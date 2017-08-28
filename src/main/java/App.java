@@ -143,10 +143,11 @@ public class App {
           int id = Integer.parseInt(request.params("id"));
           int memberId = Integer.parseInt(request.params("membersId"));
           Team team = teamDao.findById(id);
+          Member members = memberDao.findById(memberId);
 //          model.put("team", team);
           memberDao.update(id,memberName,badge);
-          model.put("memberName",memberName);
-          model.put("badge",badge);
+//          model.put("memberName",memberName);
+          model.put("members",members);
           response.redirect("/teams/" + id);
           return null;
       });
