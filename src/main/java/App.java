@@ -87,13 +87,14 @@ public class App {
             response.redirect("/teams/" + teamId);
             return null;
         });
-
+        //show all members
         get("/members", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             List<Member> members = memberDao.getAll();
             model.put("members", members);
             return new ModelAndView(model, "member-detail.hbs");
                 }, new HandlebarsTemplateEngine());
+
 
 //        get("/teams/:teamId/members/memberId",  (req,res) -> {
 //            Map<String,Object> model = new HashMap<>();
@@ -103,7 +104,7 @@ public class App {
 //            model.put("team",teams);
 //            return new ModelAndView(model, "member-detail.hbs");
 //        },   new HandlebarsTemplateEngine());
-
+        //show all teams
         get("/teams", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Team> teams = teamDao.getAll();
@@ -116,29 +117,14 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int idOfTeamToFind = Integer.parseInt(req.params("id"));
             Team foundTeam = teamDao.findById(idOfTeamToFind);
+//            Member members = memberDao.getAll();
+//            model.put("members", members);
             model.put("teams", foundTeam);
-
             return new ModelAndView(model, "team-detail.hbs");
         }, new HandlebarsTemplateEngine());
 
-//        get("/teams/:id/delete", (req, res) -> {
-//            Map<String, Object> model = new HashMap<>();
-//            int idOfTeamToDelete = Integer.parseInt(req.params("id")); //pull id - must match route segment
-//                Team deleteTeam = teamDao.findById(idOfTeamToDelete); //use it to find task
-//            teamDao.deleteById(idOfTeamToDelete);
-//            return new ModelAndView(model, "index.hbs");
-//        }, new HandlebarsTemplateEngine());
 
-
-//        get("/teams/update", (req, res) -> {
-//            Map<String, Object> model = new HashMap<>();
-//            model.put("editTeam", true);
-//            List<Team> allTeam = teamDao.getAll();
-//            model.put("teams", allTeam);
-//            return new ModelAndView(model, "team-form.hbs");
-//        }, new HandlebarsTemplateEngine());
-        //get form to update members name
-        //This is the newest added route, make sure everything lines up with it well or that I have the ID of the object and am able to update. Probably start with trying to get the hyperlinks for all members in a team and make them clickable.
+        //form to update member
         get("/teams/:id/members/:membersId/update", (request, response) -> {
             Map<String,Object> model = new HashMap<>();
             int idOfMembermToEdit = Integer.parseInt(request.params("id"));
@@ -148,6 +134,19 @@ public class App {
             model.put("editMember",editMember);
             return new ModelAndView(model, "member-form.hbs");
         }, new HandlebarsTemplateEngine());
+
+//        process an updated member
+      post("/teams/:id/members/:membersId/update", (request, response) -> {
+          Map<String,Object> model =  new HashMap<>();
+          String memberName = request.queryParams("membername");
+          int badge = Integer.parseInt(request.queryParams("badge"));
+          int id = Integer.parseInt(request.params("id"));
+          int teamId = Integer.parseInt(request.params("teamId"));
+          Team team = teamDao.findById(teamId);
+          memberDao.update(id,memberName,badge);
+          response.redirect("/teams" + teamId);
+          return null;
+      });
 
         get("/teams/:id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();

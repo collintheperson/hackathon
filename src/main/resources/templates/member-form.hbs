@@ -2,22 +2,12 @@
 
     {{#if editMember}}
         <h1>Edit this Member!</h1>
-        <form action="/teams/{{editMember.id}}/update" id="editMemberId" method="post" select name="editMemberId">
+        <form action="/teams/{{teamId}}/members/{{id}}/update" id="editMemberId" method="post" select name="editMemberId">
             <label for="name">Edit this members name.</label>
             <input id="name" name="name" type="text" value="{{editMember.memberName}}"><br>
             <label for="description">Edit this members's name and add other members names!</label>
 
-
     {{else}}
-
-    <p>Team Name:</p>
-
-    <p>{{ members.memberName}}</p>
-    <h5>Member Name:</h5>
-    <p> {{ members.teamId }}</p>
-    <h5> Badge Number:</h5>
-    <p>
-
         <form action="/teams/{{teamId}}/members/new" method="post">
             <label for="memberName"> Add a person</label>
             <input id="memberName" name="memberName" type="text" required>
@@ -25,7 +15,6 @@
         <input id="badge" name="badge" type="number" required<br>
 
 
-        <a href="/teams/{{teams.id}}/update">Edit this team</a><br>
 
 
     <!--<p class="text-muted"><a href="/teams/{{deleteTeam.id}} delete">Delete this team</a></p>-->

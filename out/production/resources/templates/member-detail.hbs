@@ -3,20 +3,43 @@
     <p>Member Name:</p>
 
     {{#if members}}
+        <h1>Members</h1>
         {{#each members}}
             <h5>Member name:</h5>
             <p>{{ memberName}}</p>
             <h5> Badge:</h5>
             <p> {{ badge }}</p>
             <p>{{teamId}}</p>
+            <a href="/teams/{{teamId}}/members/{{id}}/update">Edit this Member</a><br>
+
 
         {{/each}}
-    {{/if}}
+    <!--{{/if}}-->
     <!--<p>{{ members.memberName}}</p>-->
     <!--<h5>The individuals name:</h5>-->
     <!--<p> {{ members.badge }}</p>-->
     <!--<h5> Their badge number</h5>-->
+    {{#if editMember}}
+        <h1>Edit this Member!</h1>
+        <form action="/teams/{{id}}/members/{{members.id}}" id="editTeamId" method="post">
+            <label for="memberName">Edit this members name.</label>
+            <input id="memberName" name="memberName" type="text" value="{{members.name}}"><br>
+            <!--<label for="description">Edit this members name!</label>-->
+            <!--<input id="description" name="description" type="text" value="{{editTeam.description}}"><br>-->
 
+    {{else}}
+
+            <h1>Add a new team!</h1>
+        <form action="/teams/new" method="post">
+            <label for="name">Name of your codealicous team!!</label>
+            <input id="name" name="name" type="text"><br>
+            <label for="description">Description of your codealicous team!!</label>
+            <input id="description" name="description" type="text"><br>
+
+
+
+
+    {{/if}}
 
 
 
